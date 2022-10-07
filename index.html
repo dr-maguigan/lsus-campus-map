@@ -60,7 +60,7 @@ body {
 	
 	var layerGroup = L.geoJSON(buildings, {
   		onEachFeature: function (feature, layer) {
-    		layer.bindPopup('+feature.properties.building+'<br>'+feature.properties.colleges+'<br>'+feature.properties.departments+'<br>'+feature.properties.otherpois+');
+    		layer.bindPopup(feature.properties.building+<br>feature.properties.colleges<br>feature.properties.departments<br>feature.properties.otherpois);
   }
 }).addTo(map);
       
