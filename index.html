@@ -53,7 +53,11 @@ body {
     				maxZoom: 13,
    				attribution: '© OpenStreetMap'});
 		
-	
+	var layerGroup = L.geoJSON(lsus.geoJSON, {
+  		onEachFeature: function (feature, layer) {
+    			layer.bindPopup('<h2>'+feature.properties.building+'</h2><br><p>Colleges: '+feature.properties.colleges+'</p>'+'<br><p>Departments: '+feature.properties.departments+'</p>'+'</p>'+'<br><p>Other Things: '+feature.properties.otherpois+'</p>');
+  		}
+	}).addTo(map);
      	
        </script>				
 </body>
