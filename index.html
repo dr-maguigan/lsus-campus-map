@@ -14,6 +14,7 @@
     h1 {text-align: center;}
     h2 {text-align: center;}
     h3 {text-align: center;}
+    h4 {text-align: center;}
     p {text-align: center;}
 body {
   background-color: #461D7C;
@@ -56,7 +57,7 @@ body {
    				attribution: '© OpenStreetMap'}).addTo(map);
 		
 	function onEachFeature(feature, layer) {
-		var popupContent = '<h3>'+feature.properties.building+'</h3><br><p>Colleges: '+feature.properties.colleges+'</p>'+'<br><p>Departments: '+feature.properties.departments+'</p>'+'</p>'+'<br><p>Other Things: '+feature.properties.otherpois+'</p>'
+		var popupContent = '<h4>'+feature.properties.building+'</h4><br><p>Colleges: '+feature.properties.colleges+'</p>'+'<br><p>Departments: '+feature.properties.departments+'</p>'+'</p>'+'<br><p>Other Things: '+feature.properties.otherpois+'</p>'
 
 		if (feature.properties && feature.properties.popupContent) {
 			popupContent += feature.properties.popupContent;
