@@ -51,10 +51,15 @@ body {
 				 center: [32.42862184658907, -93.7037758470885],
 				 zoom: 16,
 				 });
-       
-       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    				maxZoom: 18,
-   				attribution: '© OpenStreetMap'}).addTo(map);
+		
+       L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+		attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
+		tileSize: 512,
+		maxZoom: 18,
+		zoomOffset: -1,
+		id: 'mapbox/streets-v11',
+		accessToken: 'pk.eyJ1IjoibW1hZ3VpZ2EiLCJhIjoiY2t5MXNtbWFwMGU1aDJ5b2Q1Mmhpb25oZSJ9.B88DtgzuP3fxy3NDcjAeXQ'
+	}).addTo(map);
 		
 	function onEachFeature(feature, layer) {
 		var popupContent = '<h4>'+feature.properties.building+'</h4><br><p>What is Here: '+feature.properties.otherpois+'</p>'
