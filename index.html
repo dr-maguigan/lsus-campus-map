@@ -100,7 +100,7 @@ body {
 		{"type":"Feature","properties":{"building":"Museum of Life Sciences","otherpois":"Collection of Biological Specimens"},"geometry":{"type":"Polygon","coordinates":[[[-93.70319455862045,32.42766685755886],[-93.7031328678131,32.42754233913842],[-93.70292097330093,32.427621578153136],[-93.70298534631729,32.42773930456072],[-93.70319455862045,32.42766685755886]]]}},
 		{"type":"Feature","properties":{"building":"Community Outreach Building/Red River Radio","otherpois":"Red River Radio<br>Shreveport Metropolitan Band"},"geometry":{"type":"Polygon","coordinates":[[[-93.70705157518387,32.424644407342655],[-93.70697647333145,32.42448818806188],[-93.70643198490143,32.424687424198545],[-93.70651513338088,32.42485949141697],[-93.70656609535217,32.42483911505297],[-93.70658218860626,32.424873075657075],[-93.70683699846266,32.42478251401771],[-93.70681822299956,32.42473496912067],[-93.70705157518387,32.424644407342655]]]}},
 		{"type":"Feature","properties":{"building":"University Center and Bookstore","otherpois":"LSUS Bookstore<br>Student Activities<br>The Port<br>UC Ballroom<br>UC Theater<br>Computer Lab"},"geometry":{"type":"Polygon","coordinates":[[[-93.70415210723877,32.428912032307636],[-93.70380342006683,32.42830529475947],[-93.70331525802612,32.428513578258496],[-93.70365858078003,32.42911125867201],[-93.70415210723877,32.428912032307636]]]}},
-		{"type":"Feature","properties":{"building":"Health and Physical Education","otherpois":"Departments: Kinesiology<br>Olympic Weightlifting Training Center"},"geometry":{"type":"Polygon","coordinates":[[[-93.70320528745651,32.42945990375063],[-93.70301216840743,32.42914068980216],[-93.70295047760008,32.42916559305864],[-93.70282709598541,32.42895504712809],[-93.70289415121078,32.42892787987544],[-93.70270639657974,32.4286086640438],[-93.7021243572235,32.42884411412825],[-93.70231479406357,32.42916559305864],[-93.7023577094078,32.42915200946505],[-93.7024837732315,32.42936255493574],[-93.70244354009628,32.42938519420439],[-93.70263665914536,32.42969761553144],[-93.70320528745651,32.42945990375063]]]}},
+		{"type":"Feature","properties":{"building":"Health and Physical Education","otherpois":"Kinesiology<br>Olympic Weightlifting Training Center"},"geometry":{"type":"Polygon","coordinates":[[[-93.70320528745651,32.42945990375063],[-93.70301216840743,32.42914068980216],[-93.70295047760008,32.42916559305864],[-93.70282709598541,32.42895504712809],[-93.70289415121078,32.42892787987544],[-93.70270639657974,32.4286086640438],[-93.7021243572235,32.42884411412825],[-93.70231479406357,32.42916559305864],[-93.7023577094078,32.42915200946505],[-93.7024837732315,32.42936255493574],[-93.70244354009628,32.42938519420439],[-93.70263665914536,32.42969761553144],[-93.70320528745651,32.42945990375063]]]}},
 		{"type":"Feature","properties":{"building":"Pioneer Heritage Center","otherpois":"Schedule a Visit!"},"geometry":{"type":"Polygon","coordinates":[[[-93.70349764823914,32.43137063595969],[-93.70344668626785,32.431282344723705],[-93.70333403348921,32.431332150046934],[-93.70338767766953,32.431413649607435],[-93.70349764823914,32.43137063595969]]]}},
 		{"type":"Feature","properties":{"building":"Pioneer Heritage Center","otherpois":"Schedule a Visit!"},"geometry":{"type":"Polygon","coordinates":[[[-93.70326966047287,32.431189525638835],[-93.70317310094832,32.43108312315571],[-93.70307117700575,32.43115556741317],[-93.70317846536636,32.431264233690264],[-93.70326966047287,32.431189525638835]]]}},
 		{"type":"Feature","properties":{"building":"Pioneer Heritage Center","otherpois":"Schedule a Visit!"},"geometry":{"type":"Polygon","coordinates":[[[-93.70346076786518,32.43103501560883],[-93.7033823132515,32.430939366409966],[-93.70332598686218,32.43097332471702],[-93.7034098058939,32.43106784193772],[-93.70346076786518,32.43103501560883]]]}},
@@ -116,6 +116,26 @@ body {
   		onEachFeature: onEachFeature
 	}).addTo(map);
      	
+	L.Control.Watermark = L.Control.extend({
+    				onAdd: function(map) {
+        				var img = L.DomUtil.create('img');
+
+        				img.src = "lsus.png";
+        				img.style.width = '1200px';
+
+        return img;
+    },
+
+    onRemove: function(map) {
+    }
+});
+
+L.control.watermark = function(opts) {
+    return new L.Control.Watermark(opts);
+}
+
+L.control.watermark({ position: 'bottomleft' }).addTo(map);
+		
        </script>				
 </body>
 </html>
