@@ -57,7 +57,7 @@ body {
    				attribution: '© OpenStreetMap'}).addTo(map);
 		
 	function onEachFeature(feature, layer) {
-		var popupContent = '<h4>'+feature.properties.building+'</h4><br><p>What is Here?: '+feature.properties.otherpois+'</p>'
+		var popupContent = '<h4>'+feature.properties.building+'</h4><br><p>What is Here: '+feature.properties.otherpois+'</p>'
 
 		if (feature.properties && feature.properties.popupContent) {
 			popupContent += feature.properties.popupContent;
