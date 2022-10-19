@@ -11,15 +11,18 @@
    crossorigin=""></script>
    <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    h1 {text-align: center;}
+    h1 {text-align: center;
+    margin: 0.1em 0;
+    color: #FDD023;}
     h2 {text-align: center;
 	   color: #FDD023;}
-    h3 {text-align: center;}
+    h6 {text-align: center;
+    color: #FDD023;}
     h4 {text-align: center;}
 	  h5 {text-align: center;}
     p {text-align: left;}
 	  a{text-align: left;
-		  color:#461D7C;}
+		  color:yellow;}
 body {
   background-color: #461D7C;
 }
@@ -82,7 +85,7 @@ body {
 	}).addTo(map);
 		
 	function onEachFeature(feature, layer) {
-		var popupContent = '<h4>'+feature.properties.building+'</h4><h1>______</h1><br><p>'+feature.properties.otherpois+'</p>'
+		var popupContent = '<h4>'+feature.properties.building+'</h4><h6>______________________</h6><br><p>'+feature.properties.otherpois+'</p>'
 
 		if (feature.properties && feature.properties.popupContent) {
 			popupContent += feature.properties.popupContent;
