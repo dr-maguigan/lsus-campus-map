@@ -10,6 +10,7 @@
   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
    crossorigin=""></script>
    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../src/leaflet-search.css" />
   <style>
     h1 {text-align: center;}
     h2 {text-align: center;}
@@ -50,12 +51,19 @@ body {
 		  margin: 0.2em 0;
 	  	font-family: Georgia;
       		color: #461D7C;}
+	  .search-input {
+	font-family:Georgia
+}
+.search-input,
+.leaflet-control-search {
+	max-width:400px;
+}
 </style>
 </head>
  <body>
 	<h2>LSUS Campus Map</h2>
   	<div id="map"></div>
-	     
+	<script src="../src/leaflet-search.js"></script>     
   	<script type="text/javascript">
        
        var map = L.map('map', {
@@ -73,7 +81,7 @@ body {
 	}).addTo(map);
 		
 	function onEachFeature(feature, layer) {
-		var popupContent = '<h4>'+feature.properties.building+'</h4><b></b><br><p>'+feature.properties.otherpois+'</p>'
+		var popupContent = '<b><h4>'+feature.properties.building+'</h4></b><br><p>'+feature.properties.otherpois+'</p>'
 
 		if (feature.properties && feature.properties.popupContent) {
 			popupContent += feature.properties.popupContent;
@@ -135,7 +143,27 @@ L.control.watermark = function(opts) {
 }
 
 L.control.watermark({ position: 'bottomleft' }).addTo(map);
-		
+
+		L.control.search({
+		url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}',
+		propertyName: 'otherpois',
+		jsonpParam: 'json_callback',		
+		propertyLoc: ['lat','lon'],
+		autoCollapse: true,
+		autoType: false,
+		minLength: 2,
+		moveToLocation: function(latlng, title, map) {
+			//https://wiki.openstreetmap.org/wiki/Shortlink
+			var url = L.Util.template('http://osm.org/?mlat={lat}&amp;mlon={lon}#map={zoom}/{lat}/{lon}', {
+				lat: latlng.lat,
+				lon: latlng.lng,
+				zoom: map.getZoom()
+			});
+
+			location.href = url;
+		}
+	})
+	.addTo(map);
        </script>				
 </body>
 </html>
