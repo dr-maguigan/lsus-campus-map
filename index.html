@@ -68,7 +68,10 @@ body {
 			popupContent += feature.properties.popupContent;
 		}
 
-		layer.bindPopup(popupContent);
+		layer.bindPopup(popupContent, {
+  			maxWidth: "auto",
+			maxHeight: "auto"
+		});
 	}
 		
 	var lsus = {"type":"FeatureCollection","features":[
@@ -97,6 +100,7 @@ body {
 		
 	var layerGroup = L.geoJSON(lsus, {
 		'fillcolor':'#461D7C',
+		'opacity': 1,
 		'color':'#461D7C',
   		onEachFeature: onEachFeature
 	}).addTo(map);
