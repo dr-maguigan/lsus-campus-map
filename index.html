@@ -148,6 +148,8 @@ body {
 L.control.watermark = function(opts) {
     return new L.Control.Watermark(opts);
 }
+		
+L.control.watermark({ position: 'bottomleft' }).addTo(map);
 	 if (navigator.geolocation) {
  		navigator.geolocation.getCurrentPosition(function (position) {
 			console.log(position);
