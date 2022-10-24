@@ -148,41 +148,13 @@ body {
 L.control.watermark = function(opts) {
     return new L.Control.Watermark(opts);
 }
-	 </script>
-	  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-L.control.watermark({ position: 'bottomleft' }).addTo(map);
-	 
-	 L.Control.geocoder().addTo(map_init);
-        	if (!navigator.geolocation) {
-            		console.log("Your browser doesn't support geolocation feature!")
-        	} else {
-            		setInterval(() => {
-                		navigator.geolocation.getCurrentPosition(getPosition)
-            		}, 5000);
-        };
-        var marker, circle, lat, long, accuracy;
-
-        function getPosition(position) {
-            // console.log(position)
-            lat = position.coords.latitude
-            long = position.coords.longitude
-            accuracy = position.coords.accuracy
-
-            if (marker) {
-                map_init.removeLayer(marker)
-            }
-
-            if (circle) {
-                map_init.removeLayer(circle)
-            }
-
-            marker = L.marker([lat, long])
-            circle = L.circle([lat, long], { radius: accuracy })
-
-            var featureGroup = L.featureGroup([marker, circle]).addTo(map_init)
-
-            map_init.fitBounds(featureGroup.getBounds())
-
+	 if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(
+    (position) => myMap.panTo([position.coords.latitude, position.coords.longitude]),
+    (err) => console.warn(`Geolocation error (${err.code}): ${err.message}`),
+    { timeout: 20000 } 
+  );
+}
        </script>				
 </body>
 </html>
