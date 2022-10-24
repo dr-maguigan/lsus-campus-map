@@ -125,7 +125,7 @@ body {
 		
 	var layerGroup = L.geoJSON(lsus, {
 		'fillcolor':'#461D7C',
-		'fillopacity': 1,
+		'fillopacity': 1.0,
 		'color':'#461D7C',
 		'opacity': 1,
   		onEachFeature: onEachFeature
@@ -156,7 +156,7 @@ L.control.watermark = function(opts) {
 			var userpos = L.circleMarker([position.coords.latitude,position.coords.longitude]).addTo(map);
 			userpos.setStyle({
 				'fillcolor': '#4c8bf5',
-				'fillopacity': 0.1,
+				'fillopacity': 1.0,
 				'color': '#d3d3d3',
 				'opacity': 0.99,
 				'radius': 6
