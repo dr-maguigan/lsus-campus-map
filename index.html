@@ -153,7 +153,11 @@ L.control.watermark = function(opts) {
 			console.log(position);
 			console.log(position.coords.latitude)
 			console.log(position.coords.longitude)
-			var marker = L.marker([position.coords.latitude,position.coords.longitude]).addTo(map);
+			var userpos = L.circleMarker([position.coords.latitude,position.coords.longitude]).addTo(map);
+			userpos.setStyle({
+				'fillcolor': 'blue',
+				'color': '#d3d3d3',
+				'radius': 4
 		})
 	};
        </script>				
