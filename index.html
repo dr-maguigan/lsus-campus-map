@@ -156,8 +156,10 @@ L.control.watermark = function(opts) {
 			var userpos = L.circleMarker([position.coords.latitude,position.coords.longitude]).addTo(map);
 			userpos.setStyle({
 				'fillcolor': 'blue',
+				'fillopacity': 0.99,
 				'color': '#d3d3d3',
-				'radius': 4
+				'opacity': 0.99,
+				'radius': 8
 			})
 		})
 	};
