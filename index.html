@@ -149,12 +149,13 @@ L.control.watermark = function(opts) {
     return new L.Control.Watermark(opts);
 }
 	 if (navigator.geolocation) {
- navigator.geolocation.getCurrentPosition(function (position) {
-console.log(position);
-console.log(position.coords.latitude)
-console.log(position.coords.longitude)
-var marker = L.marker([position.coords.latitude,position.coords.longitude]).addTo(map);
-});
+ 		navigator.geolocation.getCurrentPosition(function (position) {
+			console.log(position);
+			console.log(position.coords.latitude)
+			console.log(position.coords.longitude)
+			var marker = L.marker([position.coords.latitude,position.coords.longitude]).addTo(map);
+		})
+	};
        </script>				
 </body>
 </html>
