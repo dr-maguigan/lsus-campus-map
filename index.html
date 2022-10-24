@@ -154,7 +154,7 @@ L.control.watermark = function(opts) {
     (err) => console.warn(`Geolocation error (${err.code}): ${err.message}`),
     { timeout: 20000 } 
   );
-		 var marker = L.marker([position.coords.latitude,position.coords.longitude]).addTo(map)
+		 var userpos = L.circleMarker([position.coords.latitude,position.coords.longitude]).addTo(map)
 }
        </script>				
 </body>
