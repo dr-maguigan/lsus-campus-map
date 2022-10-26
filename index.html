@@ -150,19 +150,18 @@ L.control.watermark = function(opts) {
 }
 		
 L.control.watermark({ position: 'bottomleft' }).addTo(map);
-	 if (navigator.geolocation) {
- 		navigator.geolocation.getCurrentPosition(function (position) {
-			console.log(position);
-			console.log(position.coords.latitude)
-			console.log(position.coords.longitude)
-			var userpos = L.circleMarker([position.coords.latitude,position.coords.longitude], {
-    				color: '#d3d3d3',
-    				fillColor: '#4c8bf5',
-    				fillOpacity: 0.9,
-				radius: 7}).addTo(map);
-			
-		})
-	};
+
+function onLocationFound(e) {
+  L.cirlceMarker(e.latlng, {
+		color: '#d3d3d3',
+    		fillColor: '#4c8bf5',
+    		fillOpacity: 0.9,
+		radius: 7}).addTo(map);
+  }
+
+map.on('locationfound', onLocationFound);
+map.locate({setView: false, watch: true, maxZoom: 18});		
+
        </script>				
 </body>
 </html>
