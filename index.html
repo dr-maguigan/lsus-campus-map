@@ -104,6 +104,28 @@
 			accessToken: 'pk.eyJ1IjoibW1hZ3VpZ2EiLCJhIjoiY2xiMmMyemsyMDA5czNwcnBhZDFiaWcyeCJ9.TzzxHt4q9OIY6wJn5AzJdw'
 		}).addTo(map);
 		
+		//create background style
+		var backgroundStyle = {
+			"color": "#461D7C",
+    			"weight": 1,
+    			"opacity": 0.99
+		};
+		
+		//read in background as geojson and add to map
+		var background =  new L.geoJson( '' , {
+			style: backgroundStyle});
+		background.addTo(map);
+		//find background geojson in files using JQuery
+		$.ajax({
+			dataType: "json",
+			url: "background.geojson",
+			success: function(data) {
+				$(data.features).each(function(key, data) {
+					background.addData(data);
+				});
+			}
+		}).error(function() {});
+				
 		//create function for each feature to create popup content to populate popup
 		function onEachFeature(feature, layer) {
 			var popupContent = '<h4>'+feature.properties.building+'</h4><h6>______________________</h6><br><p>'+feature.properties.otherpois+'</p>'
@@ -152,27 +174,7 @@
 			'opacity': 1,
 			onEachFeature: onEachFeature
 		}).addTo(map);
-		//create background style
-		var backgroundStyle = {
-			"color": "#461D7C",
-    			"weight": 1,
-    			"opacity": 0.99
-		};
 		
-		//read in background as geojson and add to map
-		var background =  new L.geoJson( '' , {
-			style: backgroundStyle});
-		background.addTo(map);
-		//find background geojson in files using JQuery
-		$.ajax({
-			dataType: "json",
-			url: "background.geojson",
-			success: function(data) {
-				$(data.features).each(function(key, data) {
-					background.addData(data);
-				});
-			}
-		}).error(function() {});
 		
 		//add watermark to lower left
 		L.Control.Watermark = L.Control.extend({
