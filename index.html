@@ -155,6 +155,27 @@
 			onEachFeature: onEachFeature
 		}).addTo(map);
 		
+		//create background style
+		var backgroundStyle = {
+			"color": "#461D7C",
+    			"weight": 1,
+    			"opacity": 0.99
+		};
+		
+		//read in background as geojson and add to map
+		var background =  new L.geoJson( '' , {
+			style: backgroundStyle});
+		background.addTo(map);
+		//find background geojson in files using JQuery
+		$.ajax({
+			dataType: "json",
+			url: "background.geojson",
+			success: function(data) {
+				$(data.features).each(function(key, data) {
+					background.addData(data);
+				});
+			}
+		}).error(function() {});
 		
 		//add watermark to lower left
 		L.Control.Watermark = L.Control.extend({
