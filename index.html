@@ -148,29 +148,15 @@
 		
 		//create a layergroup from lsus geojson features and add to map
 		var layerGroup = L.geoJSON(lsus, {
+			'fillcolor':'#FDD023',
+			'fillopacity': 1.0,
+			'color': '#FDD023',
+			'opacity': 1,
 			onEachFeature: onEachFeature
 		}).addTo(map).on({
 			mouseover: highlight,
   			mouseout: reset
 		});
-		
-		function highlight(event) {
-			var layerGroup = event.target;
-  
-  			layerGroup.setStyle({
-  				color: '#FDD023'
-  			});
-  
-  			layerGroup.bringToFront();
-		}
-
-		function reset(event) {
-			var layerGroup = event.target;
-  
-  			layerGroup.setStyle({
-  				color: 'white'
-  			});
-		}
 		
 		//create background style
 		var backgroundStyle = {
