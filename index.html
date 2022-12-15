@@ -177,6 +177,10 @@
 			}
 		}).error(function() {});
 		
+		//order layers
+		background.bringToBack();
+		layerGroup.bringToFront();
+		
 		//add watermark to lower left
 		L.Control.Watermark = L.Control.extend({
     				onAdd: function(map) {
