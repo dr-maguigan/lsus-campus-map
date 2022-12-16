@@ -94,6 +94,10 @@
 				 zoom: 16.35,
 				 });
 		
+		//create pane for background, set zIndex
+		map.createPane('back');
+		map.getPane('back').style.zIndex = 550;
+		
 		//add Mapbox tilelayer
        		L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
 			attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
@@ -164,8 +168,10 @@
 		
 		//read in background as geojson and add to map
 		var background =  new L.geoJson( '' , {
-			style: backgroundStyle});
+			style: backgroundStyle,
+			pane: 'back'});
 		background.addTo(map);
+		
 		//find background geojson in files using JQuery
 		$.ajax({
 			dataType: "json",
@@ -176,10 +182,6 @@
 				});
 			}
 		}).error(function() {});
-		
-		//order layers
-		background.bringToBack();
-		layerGroup.bringToFront();
 		
 		//add watermark to lower left
 		L.Control.Watermark = L.Control.extend({
