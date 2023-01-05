@@ -208,9 +208,6 @@
 		//add user location
 	 	if (navigator.geolocation) {
  			navigator.geolocation.getCurrentPosition(function (position) {
-				console.log(position);
-				console.log(position.coords.latitude)
-				console.log(position.coords.longitude)
 				var userpos = L.circleMarker([position.coords.latitude,position.coords.longitude], {
     					color: '#d3d3d3',
     					fillColor: '#4c8bf5',
