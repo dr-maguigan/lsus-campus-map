@@ -107,11 +107,8 @@
 				 zoom: 18,
                                  keyboard: true
 				 });
-		
-                var tl = L.latLng(32.4305, -93.71);
-                var br = L.latLng(32.4254, -93.695);
-                bounds = L.latLngBounds(tl, br);
-                map.fitBounds(bounds);
+	
+                map.fitBounds(layerGroup.getBounds());
 
 		//create pane for background, set zIndex
 		map.createPane('back');
