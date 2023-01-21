@@ -169,7 +169,7 @@
 			{"type":"Feature","properties":{"building":"Anderson Field Station (RRWMI)","otherpois":"<a href='https://www.lsus.edu/community/rrwmi' target='_blank' rel='noopener noreferrer'>Research and Outreach Station</a>"},"geometry":{"type":"Polygon","coordinates":[[[-93.70171129703522,32.43443813676175],[-93.70166301727295,32.43431362769101],[-93.70149403810501,32.43437022274447],[-93.70153963565825,32.43446982995229],[-93.70156913995743,32.43446077475612],[-93.7015825510025,32.43448114894622],[-93.70171129703522,32.43443813676175]]]}}]};
 		
 		//create a featureGroup from lsus geojson features and add to map
-		var buildings = L.featureGroup(lsus, {
+		var buildings = L.geoJson(lsus, {
 			'fillcolor':'#FDD023',
 			'fillopacity': 1.0,
 			'color': '#FDD023',
@@ -223,16 +223,20 @@
 		L.control.watermark({ position: 'bottomleft' }).addTo(map);
 		
 		//add user location
-	 	if (navigator.geolocation) {
- 			navigator.geolocation.getCurrentPosition(function (position) {
-				var userpos = L.circleMarker([position.coords.latitude,position.coords.longitude], {
-    					color: '#d3d3d3',
-    					fillColor: '#4c8bf5',
-    					fillOpacity: 0.9,
-					radius: 7}).addTo(map);
-			
-			})
-		};
+                map.locate({setView: false, 
+                             maxZoom: 16, 
+                             watch:true
+                });
+
+function onLocationFound(e) {
+    L.circleMarker(e.latlng, {
+        color: '#d3d3d3',
+    	fillColor: '#4c8bf5',
+    	fillOpacity: 0.9,
+	radius: 7}).addTo(map)
+}
+
+map.on('locationfound', onLocationFound);
 
        </script>				
 </body>
