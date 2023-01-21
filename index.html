@@ -48,12 +48,9 @@
   	margin-left: auto;
   	margin-right: auto;
 	}
-  	* {
-      	font-family: Oswald;
-      	}
         #map{
 	resize: horizontal;
-        max-width: 75%;
+        max-width: 80%;
         height: calc(65vh - 16px);
         border: 3px solid #FDD023;
         margin-left:auto;
@@ -105,7 +102,7 @@
 				 zoom: 16.35,
 				 });
 		
-                var tl = L.latLng(32.4345, -93.712);
+                var tl = L.latLng(32.4345, -93.71);
                 var br = L.latLng(32.424, -93.695);
                 bounds = L.latLngBounds(tl, br);
                 map.fitBounds(bounds);
