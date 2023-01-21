@@ -107,8 +107,9 @@
 				 zoom: 18,
                                  keyboard: true
 				 });
+                var bounds = buildings.getBounds();
 	
-                map.fitBounds(layerGroup.getBounds());
+                map.fitBounds(bounds);
 
 		//create pane for background, set zIndex
 		map.createPane('back');
@@ -167,8 +168,8 @@
 			{"type":"Feature","properties":{"building":"Baptist Collegiate Ministry","otherpois":"<a href='http://shreveportbcm.com/' target='_blank' rel='noopener noreferrer'>SHV BCM"},"geometry":{"type":"Polygon","coordinates":[[[-93.7028244137764,32.43219468332675],[-93.7028083205223,32.432175440548264],[-93.70285660028458,32.43214261462259],[-93.70271846652031,32.43199659570489],[-93.70243012905121,32.43218675983022],[-93.702572286129,32.43234522962832],[-93.70263531804085,32.43230334835162],[-93.7026473879814,32.43231240376444],[-93.7028244137764,32.43219468332675]]]}},
 			{"type":"Feature","properties":{"building":"Anderson Field Station (RRWMI)","otherpois":"<a href='https://www.lsus.edu/community/rrwmi' target='_blank' rel='noopener noreferrer'>Research and Outreach Station</a>"},"geometry":{"type":"Polygon","coordinates":[[[-93.70171129703522,32.43443813676175],[-93.70166301727295,32.43431362769101],[-93.70149403810501,32.43437022274447],[-93.70153963565825,32.43446982995229],[-93.70156913995743,32.43446077475612],[-93.7015825510025,32.43448114894622],[-93.70171129703522,32.43443813676175]]]}}]};
 		
-		//create a layergroup from lsus geojson features and add to map
-		var layerGroup = L.geoJSON(lsus, {
+		//create a featureGroup from lsus geojson features and add to map
+		var buildings = L.featureGroup(lsus, {
 			'fillcolor':'#FDD023',
 			'fillopacity': 1.0,
 			'color': '#FDD023',
