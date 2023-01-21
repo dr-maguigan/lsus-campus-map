@@ -225,15 +225,22 @@
                              watch:true
                 });
 
-function onLocationFound(e) {
-    L.circleMarker(e.latlng, {
+var userpos = L.circleMarker(, {
         color: '#d3d3d3',
     	fillColor: '#4c8bf5',
     	fillOpacity: 0.9,
-	radius: 7}).addTo(map)
+	radius: 7});
+
+function onLocationFound(e) {
+    L.circleMarker(userpos, e.latlng).addTo(map)
 }
 
 map.on('locationfound', onLocationFound);
+
+function removeOldMarkers () {
+        if (userpos != undefined) {
+               map.removeLayer(userpos);
+        };
 
        </script>				
 </body>
