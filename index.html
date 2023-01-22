@@ -122,8 +122,6 @@
 			accessToken: 'pk.eyJ1IjoibW1hZ3VpZ2EiLCJhIjoiY2xiMmMyemsyMDA5czNwcnBhZDFiaWcyeCJ9.TzzxHt4q9OIY6wJn5AzJdw'
 		}).addTo(map);
 		
-		
-				
 		//create function for each feature to create popup content to populate popup
 		function onEachFeature(feature, layer) {
 			var popupContent = '<h4>'+feature.properties.building+'</h4><h6>______________________</h6><br><p>'+feature.properties.otherpois+'</p>'
@@ -174,6 +172,8 @@
 			onEachFeature: onEachFeature
 		}).addTo(map)
 		
+                map.fitBounds(buildings.getBounds());
+
 		//create background style
 		var backgroundStyle = {
 			"color": "#461D7C",
@@ -224,6 +224,8 @@
                              maxZoom: 16, 
                              watch:true
                 });
+
+var userpos = {};
 
 function onLocationFound(e) {
     userpos = L.circleMarker(e.latlng, {
