@@ -223,28 +223,17 @@
 		//add user location
                 map.locate({setView: false, 
                              maxZoom: 18,
-                             watch:false
+                             watch:true
                 });
 
-var userpos = null;
+var userpos;
 
 function onLocationFound(e) {
-    if (userpos == null) {
            userpos = L.circleMarker(e.latlng, {
                   color: '#d3d3d3',
     	          fillColor: '#4c8bf5',
     	          fillOpacity: 0.9,
 	          radius: 7}).addTo(map);
-    } 
-    else {
-           userpos = L.circleMarker('', {
-                  color: '#d3d3d3',
-    	          fillColor: '#4c8bf5',
-    	          fillOpacity: 0.9,
-	          radius: 7});
-           userpos.setLatLng(e.latlng);
-           userpos.addTo(map);
-    }
 };
 
 map.on('locationfound', onLocationFound);
