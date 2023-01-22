@@ -104,7 +104,7 @@
 		//create map centered on campus
        		var map = L.map('map', {
 				 center: [32.42959784231365, -93.70386914933833],
-				 zoom: 16,
+				 zoom: 15.5,
                                  keyboard: true
 				 });
 
@@ -196,7 +196,7 @@
 			}
 		}).error(function() {});
 		
-                map.fitBounds(background.getBounds());
+                map.fitBounds(buildings.getBounds());
 
 		//add watermark to lower left
 		L.Control.Watermark = L.Control.extend({
@@ -221,18 +221,20 @@
 		
 		//add user location
                 map.locate({setView: false, 
-                             maxZoom: 16, 
+                             maxZoom: 18,
                              watch:true
                 });
 
 var userpos = {};
 
 function onLocationFound(e) {
-    userpos = L.circleMarker.setLatLng(e.latlng, {
+    userpos = L.circleMarker('', {
         color: '#d3d3d3',
     	fillColor: '#4c8bf5',
     	fillOpacity: 0.9,
-	radius: 7}).addTo(map)
+	radius: 7});
+    userpos.setLatLng(e.latlng);
+    userpos.addTo(map);
 };
 
 map.on('locationfound', onLocationFound);
