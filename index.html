@@ -231,13 +231,12 @@ function onLocationFound(e) {
     	fillColor: '#4c8bf5',
     	fillOpacity: 0.9,
 	radius: 7}).addTo(map)
-
-   if (userpos != undefined) {
-               map.removeLayer(userpos);
-        };
 };
 
-map.on('locationfound', onLocationFound);
+map.on('locationfound', onLocationFound {
+       if (userpos != undefined) {
+               map.removeLayer(userpos);
+        });
        
        </script>				
 </body>
