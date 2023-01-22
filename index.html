@@ -171,8 +171,6 @@
 			'opacity': 1,
 			onEachFeature: onEachFeature
 		}).addTo(map)
-		
-                map.fitBounds(buildings.getBounds());
 
 		//create background style
 		var backgroundStyle = {
@@ -198,6 +196,8 @@
 			}
 		}).error(function() {});
 		
+                map.fitBounds(background.getBounds());
+
 		//add watermark to lower left
 		L.Control.Watermark = L.Control.extend({
     				onAdd: function(map) {
