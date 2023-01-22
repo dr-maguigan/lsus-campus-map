@@ -227,7 +227,6 @@
                 });
 
 var userpos = {};
-var oldpos = userpos;
 
 function onLocationFound(e) {
     userpos = L.circleMarker('', {
@@ -237,13 +236,12 @@ function onLocationFound(e) {
 	radius: 7});
     userpos.setLatLng(e.latlng);
     userpos.addTo(map);
-    if (map.hasLayer(oldpos)) {
-            map.removeLayer(oldpos);
-    }
 };
 
 map.on('locationfound', onLocationFound);
-       
+
+map.removeLayer(userpos);
+
        </script>				
 </body>
 </html>
