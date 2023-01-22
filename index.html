@@ -228,18 +228,14 @@
 var userpos = {};
 
 function onLocationFound(e) {
-    userpos = L.circleMarker(e.latlng, {
+    userpos = L.circleMarker.setLatLng(e.latlng, {
         color: '#d3d3d3',
     	fillColor: '#4c8bf5',
     	fillOpacity: 0.9,
 	radius: 7}).addTo(map)
 };
 
-map.on('locationfound', onLocationFound {
-       if (userpos != undefined) {
-               map.removeLayer(userpos);
-        };
-});
+map.on('locationfound', onLocationFound);
        
        </script>				
 </body>
