@@ -196,23 +196,11 @@
 			}
 		}).error(function() {});
 		
-		//geojson for invisible polygons to help with bounds
-		var bounds_pts = {"type":"FeatureCollection","features":[
-			{"type":"Feature","properties":{},"geometry":{"coordinates":[[[-93.70953399036371,32.42933618156704],[-93.70929563677073,32.42933618156704],[-93.70929563677073,32.429477009680014],[-93.70953399036371,32.429477009680014],[-93.70953399036371,32.42933618156704]]],"type": "Polygon"}},
-	    		{"type":"Feature","properties":{},"geometry":{"coordinates":[[[-93.70679292404743,32.42460825301325],[-93.70679292404743,32.42450765609584],[-93.70660224117348, 32.42450765609584],[-93.70660224117348,32.42460825301325],[-93.70679292404743,32.42460825301325]]],"type": "Polygon"}},
-			{"type":"Feature","properties":{},"geometry":{"coordinates":[[[-93.69418141723949,32.425756156242514],[-93.69418141723949,32.42563544146461],[-93.69399073436554,32.42563544146461],[-93.69399073436554,32.425756156242514],[-93.69418141723949,32.425756156242514]]],"type": "Polygon"}},
-      		        {"type":"Feature","properties":{},"geometry":{"coordinates":[[[-93.70233311019308,32.434728835176244],[-93.70233311019308,32.43458510095542],[-93.70214922143892,32.4345851009554],[-93.70214922143892,32.434728835176244],[-93.70233311019308,32.434728835176244]]],"type": "Polygon"}}]};
+		var tl = L.latlng(-93.70953399036371, 32.434728835176244)
+		var br = L.latlng(-93.69418141723949,32.425635441464614)
+		var bounds = L.latLngBounds(tl, br);
+		map.fitBounds(bounds);
 		
-		//add invisible features to phantom geojson
-		var phantom = L.geoJson(bounds_pts, {
-			'fillcolor':'#0000ffff',
-			'fillopacity': 0,
-			'color': '#0000ffff',
-			'opacity': 0
-		}).addTo(map)
-		
-                map.fitBounds(phantom.getBounds());
-
 		//add watermark to lower left
 		L.Control.Watermark = L.Control.extend({
     				onAdd: function(map) {
