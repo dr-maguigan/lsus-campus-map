@@ -206,9 +206,9 @@
 		//add invisible features to phantom geojson
 		var phantom = L.geoJson(bounds_pts, {
 			'fillcolor':'#0000ffff',
-			'fillopacity': 0.0,
+			'fillopacity': 0,
 			'color': '#0000ffff',
-			'opacity': 0.0
+			'opacity': 0
 		}).addTo(map)
 		
                 map.fitBounds(phantom.getBounds());
