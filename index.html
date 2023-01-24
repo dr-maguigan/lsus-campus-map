@@ -198,10 +198,10 @@
 		
 		//geojson for invisible points to help with bounds
 		var bounds_pts = {"type":"FeatureCollection","features":[
-			{"type":"Feature","properties":{},"geometry":{"coordinates":[-93.70730303227901, 32.42800305643529],"type":"Point"},
-	    		{"type":"Feature","properties":{},"geometry":{"coordinates":[-93.70705157518387,32.424644407342655],"type":"Point"},
-			{"type":"Feature","properties":{},"geometry":{"coordinates":[-93.70171129703522,32.43443813676175],"type":"Polygon"},
-		        {"type":"Feature","properties":{},"geometry":{"coordinates":[[[-93.6958108, 32.4272857],"type":"Point"}}]};
+			{"type":"Feature","properties":{},"geometry":{"coordinates":[-93.70730303227901, 32.42800305643529],"type":"Point"}},
+	    		{"type":"Feature","properties":{},"geometry":{"coordinates":[-93.70705157518387,32.424644407342655],"type":"Point"}},
+			{"type":"Feature","properties":{},"geometry":{"coordinates":[-93.70171129703522,32.43443813676175],"type":"Polygon"}},
+		        {"type":"Feature","properties":{},"geometry":{"coordinates":[-93.6958108, 32.4272857],"type":"Point"}}]};
 		
 		//add invisible features to phantom geojson
 		var phantom = L.geoJson(bounds_pts, {
