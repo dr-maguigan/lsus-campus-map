@@ -101,21 +101,8 @@
   	<div id="map"></div>
   	<script type="text/javascript">
 		
-		
-		
-		var tl = L.latLng(32.435728835176244, -93.71253399036371)
-		var br = L.latLng(32.422635441464614, -93.69198141723949)
-		var bounds = L.latLngBounds(tl, br);
-		map.fitBounds(bounds);
-
-		//create pane for background, set zIndex
-		map.createPane('back');
-		map.getPane('back').style.zIndex = 200;
-		
 		//add Mapbox tilelayers
-		
-		
-       		var sat = L.tileLayer('https://api.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+		var sat = L.tileLayer('https://api.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 			attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
 			tileSize: 512,
 			maxZoom: 18,
@@ -125,13 +112,36 @@
 		});
 		
 		var streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-			attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
+			attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
 			tileSize: 512,
 			maxZoom: 18,
 			zoomOffset: -1,
 			id: 'mapbox/streets-v11',
 			accessToken: 'pk.eyJ1IjoibW1hZ3VpZ2EiLCJhIjoiY2xiMmMyemsyMDA5czNwcnBhZDFiaWcyeCJ9.TzzxHt4q9OIY6wJn5AzJdw'
 		});
+		
+		//create map centered on campus
+		var map = L.map('map', {
+			center: [32.39959784231365, -93.70386914933833],
+			zoom: 15.5,
+			layers: [streets]
+        	});
+		
+		var baseMaps = {
+    			"Streets": streets,
+				"Satellite": sat
+		};
+		
+		var layerControl = L.control.layers(baseMaps, null, {collapsed:false}).addTo(map);
+		
+		var tl = L.latLng(32.435728835176244, -93.71253399036371)
+		var br = L.latLng(32.422635441464614, -93.69198141723949)
+		var bounds = L.latLngBounds(tl, br);
+		map.fitBounds(bounds);
+
+		//create pane for background, set zIndex
+		map.createPane('back');
+		map.getPane('back').style.zIndex = 200;
 		
 		//create function for each feature to create popup content to populate popup
 		function onEachFeature(feature, layer) {
@@ -249,20 +259,6 @@ map.on('locationfound', onLocationFound);
 
 map.removeLayer(userpos);
 		
-//create map centered on campus
-var map = L.map('map', {
-	center: [32.39959784231365, -93.70386914933833],
-	zoom: 15.5,
-	layers: [streets]
-        });
-		
-var baseMaps = {
-    	"Mapbox Streets": streets,
-	"Mapbox Satellite": sat
-};
-		
-var layerControl = L.control.layers(baseMaps).addTo(map);
-
        </script>				
 </body>
 </html>
