@@ -122,8 +122,6 @@
 		
 		//create map centered on campus
 		var map = L.map('map', {
-			center: [32.39959784231365, -93.70386914933833],
-			zoom: 15.5,
 			layers: [streets]
         	});
 		
@@ -134,8 +132,8 @@
 		
 		var layerControl = L.control.layers(baseMaps, null, {collapsed:false}).addTo(map);
 		
-		var tl = L.latLng(32.431928835176244, -93.08153399036371)
-		var br = L.latLng(32.429635441464614, -93.69228141723949)
+		var tl = L.latLng(32.432728835176244, -93.70193399036371)
+		var br = L.latLng(32.425635441464614, -93.69897141723949)
 		var bounds = L.latLngBounds(tl, br);
 		map.fitBounds(bounds);
 
