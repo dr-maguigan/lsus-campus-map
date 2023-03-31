@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="/js/leaflet-0.7.2/leaflet.ajax.min.js"></script>
+    <script type="text/javascript" src="angular121.js"></script>
     <style>
       h1 {
         text-align: center;
@@ -34,7 +35,7 @@
 
       h5 {
         text-align: center;
-        color: #461D7C;
+        color: #FDD023;
       }
 
       p {
@@ -104,7 +105,7 @@
         margin: 0.2em 0;
         font-family: Oswald
       }
-      
+
 
       .center {
         margin: auto;
@@ -114,7 +115,7 @@
 
       h6 {
         margin-left: 100px;
-        color: white
+        color: white;
       }
 
       @media screen and (orientation: landscape, max-height: 550px) {
@@ -155,14 +156,17 @@
     <h1>LSUS Campus Map</h1>
     <!--add div for map -->
     <div id="map"></div>
-    <div id="dropdown" ng-controller="Ctrl">     
-    	<select ng-model="locationFinder" ng-options="item as item.value for item in items" ng-style="{'width':'100%', 'margin-right':'auto', 'margin-left':'auto'}"}>           
-    	</select>
-	<h6>You are looking for: {{locationFinder.value}}</h6>
-    	<h6>Building: {{locationFinder.text}}</h6>
-    	<h6>Floor/Room: {{locationFinder.floor}}</h6>
+    <h5 class="center">
+      What are you looking for?
+    </h5>
+    <div id="dropdown" ng-controller="Ctrl">
+      <select ng-model="locationFinder" ng-options="item as item.value for item in items" ng-style="{'width':'100%', 'margin-right':'auto', 'margin-left':'auto'}" }>
+      </select>
+      <h6>You are looking for: {{locationFinder.value}}</h6>
+      <h6>Building: {{locationFinder.text}}</h6>
+      <h6>Floor/Room: {{locationFinder.floor}}</h6>
     </div>
-    <script type="text/javascript">
+    <script>
       //add Mapbox tilelayers
       var sat = L.tileLayer('https://api.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
@@ -1711,5 +1715,6 @@
         ];
       }
 
-      </body> 
+    </script>
+  </body>
 </html>
