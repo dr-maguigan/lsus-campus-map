@@ -34,7 +34,7 @@
       }
 
       h6 {
-        margin-left: 100px;
+        text-align:center;
         color: white;
       }
       
@@ -109,8 +109,8 @@
 
       .center {
         margin: auto;
-        width: 35%;
-        padding: 10px;
+        width: 50%;
+        padding: 1px;
       }
 
       @media screen and (orientation: landscape, max-height: 550px) {
@@ -142,7 +142,8 @@
           font-size: 18px;
         }
       }
-
+      
+      
     </style>
   </head>
 
@@ -151,16 +152,58 @@
     <h1>LSUS Campus Map</h1>
     <!--add div for map -->
     <div id="map"></div>
-    <h5 class="center">
-      What are you looking for?
+    <br>
+    <h5>
+      <u>Search</u>
     </h5>
-    <div id="dropdown" ng-controller="Ctrl">
-      <select ng-model="locationFinder" ng-options="item as item.value for item in items" ng-style="{'width':'100%', 'margin-right':'auto', 'margin-left':'auto'}" }>
-      </select>
-      <h6>You are looking for: {{locationFinder.value}}</h6>
-      <h6>Building: {{locationFinder.text}}</h6>
-      <h6>Floor/Room: {{locationFinder.floor}}</h6>
-    </div>
+        
+<form class="center">
+  <select id="locationSelect" onchange="myFunction()">
+  <option>What are you looking for?</option>
+    <option value="Administration Building on the second floor (Room 257).">Academic Affairs</option>
+<option value="Administration Building on the second floor.">Alumni Relations</option>
+<option value="University Center on the first floor.">Campus Wide Computer Lab</option>
+<option value="Noel Memorial Library on the first floor.">Career Center </option>
+<option value="Administration Building on the second floor.">Chancellor's Office</option>
+<option value="Bronson Hall on the second floor (Room 226).">College of Arts and Sciences</option>
+<option value="Business & Education Building on the first floor (Room 101).">College of Business</option>
+<option value="Business & Education Building on the first floor (Room 117).">College of Education and Human Development</option>
+<option value="Administration Building on the second floor (Room 230).">Counseling and Student Development Center</option>
+<option value="Technology Center on the first floor (Room 104).">CyberCollaboratory</option>
+<option value="Administration Building on the second floor (Room 208).">Dean of Students</option>
+<option value="Business & Education Building on the third floor (Room 339).">Department of Accounting and Business Law </option>
+<option value="Bronson Hall on the first floor (Room 142).">Department of Arts and Media </option>
+<option value="Science Hall on the first floor (Room 104).">Department of Biological Science</option>
+<option value="Science Hall on the first floor (Room 112).">Department of Chemistry and Physics </option>
+<option value="Technology Center on the second floor (Room 206).">Department of Computer Science </option>
+<option value="Business & Education Building on the third floor (Room 339).">Department of Economics and Finance </option>
+<option value="Business & Education Building on the third floor (Room 394).">Department of Education </option>
+<option value="Bronson Hall on the second floor (Room 258).">Department of English and Foreign Languages </option>
+<option value="Bronson Hall on the fourth floor (Room 439).">Department of History and Social Sciences </option>
+<option value="Health and Physical Education on the second floor (Room 207).">Department of Kinesiology and Health Science</option>
+<option value="Business & Education Building on the third floor (Room 301).">Department of Management and Marketing </option>
+<option value="Bronson Hall on the fourth floor (Room 330).">Department of Mathematics </option>
+<option value="Business & Education Building on the third floor (Room 348).">Department of Psychology </option>
+<option value="Technology Center on the first floor (Room 133).">Division of Continuing Education and Public Service</option>
+<option value="Administration Building on the first floor (Room 159).">Financial Aid</option>
+<option value="Administration Building on the second floor (Room 249).">Graduate Studies Office</option>
+<option value="Administration Building on the second floor (Room 202).">Information Technology Services</option>
+<option value="University Center on the first floor.">LSUS Bookstore</option>
+<option value="Administration Building on the first floor (Room 133).">LSUS Police Department</option>
+<option value="University Center on the second floor.">Office of Student Activites</option>
+<option value="Technology Center on the second floor (Room 254).">Pioneer Heritage Center</option>
+<option value="Noel Memorial Library on the first floor.">Stacks Coffee Shop</option>
+<option value="Noel Memorial Library on the first floor.">Student Success Center</option>
+<option value="University Center on the first floor.">The Port (LSUS OnCampus Dining and Coffee Shop)</option>
+<option value="University Center on the second floor.">University Center Ballroom</option>
+<option value="University Center on the first floor.">University Center Theatre</option>
+<option value="Technology Center on the first floor (Room 103).">Veterans Resource Center</option>
+
+  </select>
+</form>
+
+<h6 id="locator"></h6>
+
     <script>
       //add Mapbox tilelayers
       var sat = L.tileLayer('https://api.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -1494,221 +1537,12 @@
 
       map.removeLayer(userpos);
 
-      var app = angular.module('app', []);
+      function myFunction() {
+  		var x = document.getElementById("locationSelect");
+  		var i = x.selectedIndex;
+  		document.getElementById("locator").innerHTML = "That's located in the " + x.options[i].value;
+}
 
-      function Ctrl($scope) {
-        $scope.items = [{
-            value: 'Academic Affairs',
-            text: 'Administration Building',
-            floor: 'Second Floor'
-          },
-          {
-            value: 'Admissions and Records',
-            text: 'Administration Building',
-            floor: 'First Floor'
-          },
-          {
-            value: 'Alumni Relations',
-            text: 'Administration Building',
-            floor: 'First Floor'
-          },
-          {
-            value: 'Campus Tours/Recruitment Office',
-            text: 'Technology Center',
-            floor: 'First Floor'
-          },
-          {
-            value: 'Campus Wide Computer Lab',
-            text: 'University Center',
-            floor: 'First Floor'
-          },
-          {
-            value: 'Career Center ',
-            text: 'Noel Memorial Library',
-            floor: 'First Floor'
-          },
-          {
-            value: "Chancellor's Office",
-            text: 'Administration Building',
-            floor: 'Second Floor'
-          },
-          {
-            value: 'College of Arts and Sciences',
-            text: 'Bronson Hall',
-            floor: 'Second Floor'
-          },
-          {
-            value: 'College of Business',
-            text: 'Business & Education Building',
-            floor: 'Second Floor'
-          },
-          {
-            value: 'College of Education and Human Development',
-            text: 'Business & Education Building',
-            floor: 'First Floor'
-          },
-          {
-            value: 'Counseling and Student Development Center',
-            text: 'Administration Building',
-            floor: 'First Floor'
-          },
-          {
-            value: 'CyberCollaboratory',
-            text: 'Technology Center',
-            floor: 'First Floor'
-          },
-          {
-            value: 'Dean of Students',
-            text: 'Administration Building',
-            floor: 'Second Floor'
-          },
-          {
-            value: 'Department of Accounting and Business Law ',
-            text: 'Business & Education Building',
-            floor: 'Third Floor'
-          },
-          {
-            value: 'Department of Arts and Media ',
-            text: 'Bronson Hall',
-            floor: 'Third Floor'
-          },
-          {
-            value: 'Department of Biological Science',
-            text: 'Science Hall',
-            floor: 'First Floor'
-          },
-          {
-            value: 'Department of Chemistry and Physics ',
-            text: 'Science Hall',
-            floor: 'First Floor'
-          },
-          {
-            value: 'Department of Computer Science ',
-            text: 'Technology Center',
-            floor: 'Second Floor'
-          },
-          {
-            value: 'Department of Economics and Finance ',
-            text: 'Business & Education Building',
-            floor: 'Second Floor'
-          },
-          {
-            value: 'Department of Education ',
-            text: 'Business & Education Building',
-            floor: 'Second Floor'
-          },
-          {
-            value: 'Department of English and Foreign Languages ',
-            text: 'Bronson Hall',
-            floor: 'Second Floor'
-          },
-          {
-            value: 'Department of History and Social Sciences ',
-            text: 'Bronson Hall',
-            floor: 'Third Floor'
-          },
-          {
-            value: 'Department of Kinesiology and Health Science',
-            text: 'Health and Physical Education',
-            floor: 'Second Floor'
-          },
-          {
-            value: 'Department of Management and Marketing ',
-            text: 'Business & Education Building',
-            floor: 'Third Floor'
-          },
-          {
-            value: 'Department of Mathematics ',
-            text: 'Bronson Hall',
-            floor: 'Third Floor'
-          },
-          {
-            value: 'Department of Psychology ',
-            text: 'Business & Education Building',
-            floor: 'Third Floor'
-          },
-          {
-            value: 'Division of Continuing Education and Public Service',
-            text: 'Technology Center',
-            floor: 'First Floor'
-          },
-          {
-            value: 'Financial Aid',
-            text: 'Administration Building',
-            floor: 'First Floor'
-          },
-          {
-            value: 'Graduate Studies Office',
-            text: 'Administration Building',
-            floor: 'Second Floor'
-          },
-          {
-            value: 'Information Technology Services',
-            text: 'Administration Building',
-            floor: 'First Floor'
-          },
-          {
-            value: 'LSUS Bookstore',
-            text: 'University Center',
-            floor: 'First Floor'
-          },
-          {
-            value: 'LSUS Police Department',
-            text: 'Administration Building',
-            floor: 'First Floor'
-          },
-          {
-            value: 'Office of Student Activites',
-            text: 'University Center',
-            floor: 'Second Floor'
-          },
-          {
-            value: 'Olympic Weight Lifting Training Center',
-            text: 'Health and Physical Education',
-            floor: 'First Floor'
-          },
-          {
-            value: 'Pioneer Heritage Center',
-            text: 'Technology Center',
-            floor: 'First Floor'
-          },
-          {
-            value: 'Stacks Coffee Shop',
-            text: 'Noel Memorial Library',
-            floor: 'Basement'
-          },
-          {
-            value: 'Student Affairs',
-            text: 'Administration Building',
-            floor: 'First Floor'
-          },
-          {
-            value: 'Student Success Center',
-            text: 'Noel Memorial Library',
-            floor: 'Second Floor'
-          },
-          {
-            value: 'The Port (LSUS OnCampus Dining and Coffee Shop)',
-            text: 'University Center',
-            floor: 'First Floor'
-          },
-          {
-            value: 'University Center Ballroom',
-            text: 'University Center',
-            floor: 'First Floor'
-          },
-          {
-            value: 'University Center Theatre',
-            text: 'University Center',
-            floor: 'Second Floor'
-          },
-          {
-            value: 'Veterans Resource Center',
-            text: 'Technology Center',
-            floor: 'First Floor'
-          }
-        ];
-      }
 
     </script>
   </body>
