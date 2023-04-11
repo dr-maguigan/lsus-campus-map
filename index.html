@@ -160,44 +160,44 @@
 <form class="center">
   <select id="locationSelect" onchange="myFunction()">
   <option>What are you looking for?</option>
-    <option value="Administration Building on the second floor (Room 257).">Academic Affairs</option>
-<option value="Administration Building on the second floor.">Alumni Relations</option>
-<option value="University Center on the first floor.">Campus Wide Computer Lab</option>
+    <option value="the Administration Building on the second floor (Room 257).">Academic Affairs</option>
+<option value="the Administration Building on the second floor.">Alumni Relations</option>
+<option value="the University Center on the first floor.">Campus Wide Computer Lab</option>
 <option value="Noel Memorial Library on the first floor.">Career Center </option>
-<option value="Administration Building on the second floor.">Chancellor's Office</option>
+<option value="the Administration Building on the second floor.">Chancellor's Office</option>
 <option value="Bronson Hall on the second floor (Room 226).">College of Arts and Sciences</option>
-<option value="Business & Education Building on the first floor (Room 101).">College of Business</option>
-<option value="Business & Education Building on the first floor (Room 117).">College of Education and Human Development</option>
-<option value="Administration Building on the second floor (Room 230).">Counseling and Student Development Center</option>
-<option value="Technology Center on the first floor (Room 104).">CyberCollaboratory</option>
-<option value="Administration Building on the second floor (Room 208).">Dean of Students</option>
-<option value="Business & Education Building on the third floor (Room 339).">Department of Accounting and Business Law </option>
+<option value="the Business & Education Building on the first floor (Room 101).">College of Business</option>
+<option value="the Business & Education Building on the first floor (Room 117).">College of Education and Human Development</option>
+<option value="the Administration Building on the second floor (Room 230).">Counseling and Student Development Center</option>
+<option value="the Technology Center on the first floor (Room 104).">CyberCollaboratory</option>
+<option value="the Administration Building on the second floor (Room 208).">Dean of Students</option>
+<option value="the Business & Education Building on the third floor (Room 339).">Department of Accounting and Business Law </option>
 <option value="Bronson Hall on the first floor (Room 142).">Department of Arts and Media </option>
 <option value="Science Hall on the first floor (Room 104).">Department of Biological Science</option>
 <option value="Science Hall on the first floor (Room 112).">Department of Chemistry and Physics </option>
-<option value="Technology Center on the second floor (Room 206).">Department of Computer Science </option>
-<option value="Business & Education Building on the third floor (Room 339).">Department of Economics and Finance </option>
-<option value="Business & Education Building on the third floor (Room 394).">Department of Education </option>
+<option value="the Technology Center on the second floor (Room 206).">Department of Computer Science </option>
+<option value="the Business & Education Building on the third floor (Room 339).">Department of Economics and Finance </option>
+<option value="the Business & Education Building on the third floor (Room 394).">Department of Education </option>
 <option value="Bronson Hall on the second floor (Room 258).">Department of English and Foreign Languages </option>
 <option value="Bronson Hall on the fourth floor (Room 439).">Department of History and Social Sciences </option>
 <option value="Health and Physical Education on the second floor (Room 207).">Department of Kinesiology and Health Science</option>
-<option value="Business & Education Building on the third floor (Room 301).">Department of Management and Marketing </option>
+<option value="the Business & Education Building on the third floor (Room 301).">Department of Management and Marketing </option>
 <option value="Bronson Hall on the fourth floor (Room 330).">Department of Mathematics </option>
-<option value="Business & Education Building on the third floor (Room 348).">Department of Psychology </option>
-<option value="Technology Center on the first floor (Room 133).">Division of Continuing Education and Public Service</option>
-<option value="Administration Building on the first floor (Room 159).">Financial Aid</option>
-<option value="Administration Building on the second floor (Room 249).">Graduate Studies Office</option>
-<option value="Administration Building on the second floor (Room 202).">Information Technology Services</option>
-<option value="University Center on the first floor.">LSUS Bookstore</option>
-<option value="Administration Building on the first floor (Room 133).">LSUS Police Department</option>
-<option value="University Center on the second floor.">Office of Student Activites</option>
-<option value="Technology Center on the second floor (Room 254).">Pioneer Heritage Center</option>
+<option value="the Business & Education Building on the third floor (Room 348).">Department of Psychology </option>
+<option value="the Technology Center on the first floor (Room 133).">Division of Continuing Education and Public Service</option>
+<option value="the Administration Building on the first floor (Room 159).">Financial Aid</option>
+<option value="the Administration Building on the second floor (Room 249).">Graduate Studies Office</option>
+<option value="the Administration Building on the second floor (Room 202).">Information Technology Services</option>
+<option value="the University Center on the first floor.">LSUS Bookstore</option>
+<option value="the Administration Building on the first floor (Room 133).">LSUS Police Department</option>
+<option value="the University Center on the second floor.">Office of Student Activites</option>
+<option value="the Technology Center on the second floor (Room 254).">Pioneer Heritage Center</option>
 <option value="Noel Memorial Library on the first floor.">Stacks Coffee Shop</option>
 <option value="Noel Memorial Library on the first floor.">Student Success Center</option>
-<option value="University Center on the first floor.">The Port (LSUS OnCampus Dining and Coffee Shop)</option>
-<option value="University Center on the second floor.">University Center Ballroom</option>
-<option value="University Center on the first floor.">University Center Theatre</option>
-<option value="Technology Center on the first floor (Room 103).">Veterans Resource Center</option>
+<option value="the University Center on the first floor.">The Port (LSUS OnCampus Dining and Coffee Shop)</option>
+<option value="the University Center on the second floor.">University Center Ballroom</option>
+<option value="the University Center on the first floor.">University Center Theatre</option>
+<option value="the Technology Center on the first floor (Room 103).">Veterans Resource Center</option>
 
   </select>
 </form>
@@ -207,6 +207,18 @@
     <br>
 
     <script>
+      
+      //create invisible icons to create labels
+      var labelIcon = L.Icon.extend({
+	      options: {
+		      iconSize:     [22, 47],
+        	iconAnchor:   [11,47],
+       		popupAnchor:  [0, 0]
+	      }
+      });
+    
+      var blankIcon = new labelIcon({iconUrl: 'invisible.png'})
+
       //add Mapbox tilelayers
       var sat = L.tileLayer('https://api.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
@@ -248,6 +260,10 @@
       //create pane for background, set zIndex
       map.createPane('back');
       map.getPane('back').style.zIndex = 200;
+      
+      var aburl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Admin_Building.png/1200px-Admin_Building.png?20230411173839';
+      var abbounds = [[32.42667183737912, -93.70583055608273], [32.42690219854516, -93.70659787445068]];
+      L.imageOverlay(aburl, abbounds, {zIndex:1000}).addTo(map);
 
       //create function for each feature to create popup content to populate popup
       function onEachFeature(feature, layer) {
@@ -1493,7 +1509,7 @@
           });
         }
       }).error(function() {});
-
+      
       //add watermark to lower left
       L.Control.Watermark = L.Control.extend({
         onAdd: function(map) {
@@ -1542,7 +1558,7 @@
       function myFunction() {
   		var x = document.getElementById("locationSelect");
   		var i = x.selectedIndex;
-  		document.getElementById("locator").innerHTML = "That's located in the " + x.options[i].value;
+  		document.getElementById("locator").innerHTML = "That's located in " + x.options[i].value;
 }
 
 
