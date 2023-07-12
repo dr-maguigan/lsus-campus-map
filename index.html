@@ -293,7 +293,7 @@
 	    
       //create function for each feature to create popup content to populate popup
       function onEachFeature(feature, layer) {
-        var popupContent = '<h4>' + feature.properties.building + '</h4><h6>______________________</h6><br><p>' + feature.properties.otherpois + '</p>'
+        var popupContent = '<h4>' + feature.properties.building + '</h4><h6>______________________</h6><br>' + feature.properties.vid + '<br><p>' + feature.properties.otherpois + '</p>'
 
         if (feature.properties && feature.properties.popupContent) {
           popupContent += feature.properties.popupContent;
@@ -345,7 +345,8 @@
             "type": "Feature",
             "properties": {
               "building": "Noel Memorial <br>Library",
-              "otherpois": "<a href='https://www.lsus.edu/student-life/student-success-center' target='_blank' rel='noopener noreferrer'>Student Success Center</a> <br><a href='https://www.lsus.edu/student-life/career-services' target='_blank' rel='noopener noreferrer'>Career Center</a> <br><a href='https://www.lsus.edu/student-life/food-services' target='_blank' rel='noopener noreferrer'>Stacks Coffee Shop</a>"
+              "otherpois": "<a href='https://www.lsus.edu/student-life/student-success-center' target='_blank' rel='noopener noreferrer'>Student Success Center</a> <br><a href='https://www.lsus.edu/student-life/career-services' target='_blank' rel='noopener noreferrer'>Career Center</a> <br><a href='https://www.lsus.edu/student-life/food-services' target='_blank' rel='noopener noreferrer'>Stacks Coffee Shop</a>",
+	      "vid": "<a href = 'https://youtu.be/2FMMqT8VqSI?t=23' alt='University Center Front' target='_blank' rel='noopener noreferrer'><img src= 'UC_vid.PNG'</a>', {maxWidth: '200px'}"
             },
             "geometry": {
               "type": "Polygon",
@@ -614,7 +615,8 @@
             "type": "Feature",
             "properties": {
               "building": "University Center and Bookstore",
-              "otherpois": "<a href='https://lsus.bncollege.com/' target='_blank' rel='noopener noreferrer'>LSUS Bookstore</a><br><a href='https://lsus.presence.io/' target='_blank' rel='noopener noreferrer'>Student Activities</a><br><a href='https://www.lsus.edu/student-life/food-services' target='_blank' rel='noopener noreferrer'>The Port</a><br>UC Ballroom<br>UC Theater<br>Computer Lab"
+              "otherpois": "<a href='https://lsus.bncollege.com/' target='_blank' rel='noopener noreferrer'>LSUS Bookstore</a><br><a href='https://lsus.presence.io/' target='_blank' rel='noopener noreferrer'>Student Activities</a><br><a href='https://www.lsus.edu/student-life/food-services' target='_blank' rel='noopener noreferrer'>The Port</a><br>UC Ballroom<br>UC Theater<br>Computer Lab",
+	      "vid": "<a href = 'https://youtu.be/2FMMqT8VqSI?t=23' alt='University Center Front' target='_blank' rel='noopener noreferrer'><img src= 'UC_vid.PNG'</a>', {maxWidth: '200px'}"
             },
             "geometry": {
               "type": "Polygon",
@@ -1586,7 +1588,6 @@
   		var i = x.selectedIndex;
   		document.getElementById("locator").innerHTML = "That's located in " + x.options[i].value;
 }
-
 
     </script>
   </body>
