@@ -260,46 +260,10 @@ max-width: 300px;
       map.getPane('back').style.zIndex = 200;
       
       //add imgs for building names, no labeling system works well for Leaflet
-      var aburl = 'Admin.png';
-      var abbounds = [[32.42670183737912, -93.70583055608273], [32.42700219854516, -93.70659787445068]];
-      L.imageOverlay(aburl, abbounds, {zIndex:300}).addTo(map);
-	    
-      var nmlurl = 'Noel_Lib.png';
-      var nmlbounds = [[32.42810183737912, -93.70653055608273], [32.42833219854516, -93.70739787445068]];
-      L.imageOverlay(nmlurl, nmlbounds, {zIndex:300}).addTo(map);
-	    
-      var bhurl = 'Bronson.png';
-      var bhbounds = [[32.42828183737912, -93.70503055608273], [32.42851219854516, -93.70609787445068]];
-      L.imageOverlay(bhurl, bhbounds, {zIndex:300}).addTo(map);
-
-      var sburl = 'Science.png';
-      var sbbounds = [[32.42757183737912, -93.70453055608273], [32.42780219854516, -93.70559787445068]];
-      L.imageOverlay(sburl, sbbounds, {zIndex:300}).addTo(map);
-	    
-      var tcurl = 'Tech.png';
-      var tcbounds = [[32.42772183737912, -93.70363055608273], [32.42790219854516, -93.70459787445068]];
-      L.imageOverlay(tcurl, tcbounds, {zIndex:300}).addTo(map);  
-	    
-      var beburl = 'BEB.png';
-      var bebbounds = [[32.42885183737912, -93.70423055608273], [32.42915219854516, -93.70529787445068]];
-      L.imageOverlay(beburl, bebbounds, {zIndex:300}).addTo(map);
-	    
-      var ucurl = 'UC.png';
-      var ucbounds = [[32.42857183737912, -93.70323055608273], [32.42879019854516, -93.70429787445068]];
-      L.imageOverlay(ucurl, ucbounds, {zIndex:300}).addTo(map);
-	    
-      var hpeurl = 'HPE.png';
-      var hpebounds = [[32.42897183737912, -93.70213055608273], [32.42927219854516, -93.70319787445068]];
-      L.imageOverlay(hpeurl, hpebounds, {zIndex:3000}).addTo(map);
-	    
-      var bcmurl = 'BCM.png';
-      var bcmbounds = [[32.43197183737912, -93.70213055608273], [32.43237219854516, -93.70319787445068]];
-      L.imageOverlay(bcmurl, bcmbounds, {zIndex:300}).addTo(map);
-	    
-      var phcurl = 'PHC.png';
-      var phcbounds = [[32.43087183737912, -93.70283055608273], [32.43127219854516, -93.70389787445068]];
-      L.imageOverlay(phcurl, phcbounds, {zIndex:300}).addTo(map);
-	    
+      var labels = 'Campus_Map_Labels.png';
+      var labelbounds = [[32.42644826762586, -93.70319787445068], [32.43237219854516, -93.70319787445068]];
+      L.imageOverlay(labels, labelbounds, {zIndex:300}).addTo(map);
+		    
       var abgeoJSON = {
         "type": "Feature",
             "properties": {},
