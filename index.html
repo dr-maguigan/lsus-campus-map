@@ -983,78 +983,6 @@ var baseballgeoJSON = {
       }
     };
 
-var softballgeoJSON = {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "coordinates": [
-          [
-            [
-              -93.69749044576098,
-              32.42655541330139
-            ],
-            [
-              -93.697294899653,
-              32.42654021073136
-            ],
-            [
-              -93.69701187239107,
-              32.42672698498379
-            ],
-            [
-              -93.696790596532,
-              32.42697674064688
-            ],
-            [
-              -93.69653072604632,
-              32.427133109058204
-            ],
-            [
-              -93.69654873687219,
-              32.42726124408168
-            ],
-            [
-              -93.69678545058167,
-              32.427500139402056
-            ],
-            [
-              -93.69708134271913,
-              32.42764130452154
-            ],
-            [
-              -93.69727946180198,
-              32.427673881056165
-            ],
-            [
-              -93.69765768914242,
-              32.427613071515395
-            ],
-            [
-              -93.6979510083044,
-              32.427448016840884
-            ],
-            [
-              -93.6980153326821,
-              32.42733291274429
-            ],
-            [
-              -93.6978300784748,
-              32.427133109058204
-            ],
-            [
-              -93.69770914864458,
-              32.426816028386455
-            ],
-            [
-              -93.69749044576098,
-              32.42655541330139
-            ]
-          ]
-        ],
-        "type": "Polygon"
-      }
-    };
-
 var soccergeoJSON =  {
       "type": "Feature",
       "properties": {},
@@ -1288,8 +1216,6 @@ L.geoJSON(BCMgeoJSON , {'fillcolor': '#FDD023', 'fillopacity': 1.0, 'color': '#F
 L.geoJSON(AFSgeoJSON , {'fillcolor': '#FDD023', 'fillopacity': 1.0, 'color': '#FDD023', 'opacity': 1}).bindPopup("<h4>Anderson Field <br>Station (RRWMI)</h4><h6>______________________</h6><a href='https://www.lsus.edu/community/rrwmi' target='_blank' rel='noopener noreferrer'>Research and Outreach Station</a>").addTo(map)
 
 L.geoJSON(baseballgeoJSON , {'fillcolor': '#FDD023', 'fillopacity': 1.0, 'color': '#461D7C', 'opacity': 1}).bindPopup("<h4>Pilot Field</h4><h6>______________________</h6><p>Baseball Field</p>").addTo(map)
-
-L.geoJSON(softballgeoJSON , {'fillcolor': '#FDD023', 'fillopacity': 1.0, 'color': '#461D7C', 'opacity': 1}).bindPopup("<h4>LSUS Softball Field</h4><h6>______________________</h6><p>Softball Field</p>").addTo(map)
 
 L.geoJSON(soccergeoJSON , {'fillcolor': '#FDD023', 'fillopacity': 1.0, 'color': '#461D7C', 'opacity': 1}).bindPopup("<h4>The Swamp</h4><h6>______________________</h6><p>Soccer Fields</p>").addTo(map)
 
