@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
+<head>
     <title>LSUS Campus Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -9,9 +6,9 @@
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="/js/leaflet-0.7.2/leaflet.ajax.min.js"></script>
-   
-    <style>
-      h1 {
+
+	<style>
+		 h1 {
         text-align: center;
         font-family: Oswald;
         margin: 0.1em 0;
@@ -35,7 +32,7 @@
 
       h6 {
         text-align:center;
-        color: white;
+        color: black;
       }
       
       p {
@@ -122,38 +119,40 @@ width: 210px;
         padding: 1px;
       }
 
-      @media screen and (orientation: landscape, max-height: 550px) {
-        h1 {
-          font-size: 24px;
-        }
+     
+@font-face {
+		font-family: 'Oswald';
+		font-style: normal;
+		font-weight: 400;
+		}
+	
+section { 
+  min-height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+section { 
+  padding: 3rem; 
+}
 
-        h2 {
-          font-size: 23px;
-        }
-
-        h3 {
-          font-size: 22px;
-        }
-
-        h4 {
-          font-size: 21px;
-        }
-
-        h5 {
-          font-size: 20px;
-        }
-
-        h6 {
-          font-size: 19px;
-        }
-
-        p {
-          font-size: 18px;
-        }
-      }
-      
-      
-    </style>
+blockquote.bubble { 
+	background-position: center;
+  background-repeat: no-repeat !important;
+	background-size: 100% 100%;
+  margin: 0 auto;
+	text-align: center;
+	height: 1;
+	box-sizing: content-box;
+	line-height: 2;
+}
+blockquote.speech {
+  background: bubble.PNG; 
+  width: 35%;
+  padding-top: 2%;
+	padding-bottom: 5%;
+}
+	</style>    
   </head>
 
   <body>
@@ -211,8 +210,9 @@ width: 210px;
   </select>
 </form>
 
-<h6 id="locator"></h6>
-    <br>
+<section>
+  <blockquote id="locator" class="speech bubble">What can I help you find?</blockquote>
+</section>
 
     <script>
           
