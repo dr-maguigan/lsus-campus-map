@@ -147,11 +147,49 @@ blockquote.bubble {
 	line-height: 2;
 }
 blockquote.speech {
-  background: bubble.PNG; 
+  background: 'bubble.PNG'; 
   width: 35%;
   padding-top: 2%;
 	padding-bottom: 5%;
 }
+
+		.rev-img {
+        display: block;
+        max-width: 15%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+	@media screen and (orientation: landscape, max-height: 550px) {
+        h1 {
+          font-size: 24px;
+        }
+
+        h2 {
+          font-size: 23px;
+        }
+
+        h3 {
+          font-size: 22px;
+        }
+
+        h4 {
+          font-size: 21px;
+        }
+
+        h5 {
+          font-size: 20px;
+        }
+
+        h6 {
+          font-size: 19px;
+        }
+
+        p {
+          font-size: 18px;
+        }
+      }
 	</style>    
   </head>
 
@@ -213,6 +251,8 @@ blockquote.speech {
 <section>
   <blockquote id="locator" class="speech bubble">What can I help you find?</blockquote>
 </section>
+
+	  <img src = "rev.svg" alt = "Rev giving a thumbs up" class = "rev-img">
 
     <script>
           
