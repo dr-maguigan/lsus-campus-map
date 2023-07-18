@@ -199,45 +199,45 @@ blockquote.speech {
         
 <form class="center">
   <select id="locationSelect" onchange="myFunction()">
-  <option value="" disabled selected>What are you looking for?</option>
-    <option value="the Administration Building on the second floor (Room 257).">Academic Affairs</option>
-<option value="the Administration Building on the second floor.">Alumni Relations</option>
-<option value="the University Center on the first floor.">Campus Wide Computer Lab</option>
-<option value="Noel Memorial Library on the first floor.">Career Center </option>
-<option value="the Administration Building on the second floor.">Chancellor's Office</option>
-<option value="Bronson Hall on the second floor (Room 226).">College of Arts and Sciences</option>
-<option value="the Business & Education Building on the first floor (Room 101).">College of Business</option>
-<option value="the Business & Education Building on the first floor (Room 117).">College of Education and Human Development</option>
-<option value="the Administration Building on the second floor (Room 230).">Counseling and Student Development Center</option>
-<option value="the Technology Center on the first floor (Room 104).">CyberCollaboratory</option>
-<option value="the Administration Building on the second floor (Room 208).">Dean of Students</option>
-<option value="the Business & Education Building on the third floor (Room 339).">Department of Accounting and Business Law </option>
-<option value="Bronson Hall on the first floor (Room 142).">Department of Arts and Media </option>
-<option value="Science Hall on the first floor (Room 104).">Department of Biological Science</option>
-<option value="Science Hall on the first floor (Room 112).">Department of Chemistry and Physics </option>
-<option value="the Technology Center on the second floor (Room 206).">Department of Computer Science </option>
-<option value="the Business & Education Building on the third floor (Room 339).">Department of Economics and Finance </option>
-<option value="the Business & Education Building on the third floor (Room 394).">Department of Education </option>
-<option value="Bronson Hall on the second floor (Room 258).">Department of English and Foreign Languages </option>
-<option value="Bronson Hall on the fourth floor (Room 439).">Department of History and Social Sciences </option>
-<option value="Health and Physical Education on the second floor (Room 207).">Department of Kinesiology and Health Science</option>
-<option value="the Business & Education Building on the third floor (Room 301).">Department of Management and Marketing </option>
-<option value="Bronson Hall on the fourth floor (Room 330).">Department of Mathematics </option>
-<option value="the Business & Education Building on the third floor (Room 348).">Department of Psychology </option>
-<option value="the Technology Center on the first floor (Room 133).">Division of Continuing Education and Public Service</option>
-<option value="the Administration Building on the first floor (Room 159).">Financial Aid</option>
-<option value="the Administration Building on the second floor (Room 249).">Graduate Studies Office</option>
-<option value="the Administration Building on the second floor (Room 202).">Information Technology Services</option>
-<option value="the University Center on the first floor.">LSUS Bookstore</option>
-<option value="the Administration Building on the first floor (Room 133).">LSUS Police Department</option>
-<option value="the University Center on the second floor.">Office of Student Activites</option>
-<option value="the Technology Center on the second floor (Room 254).">Pioneer Heritage Center</option>
-<option value="Noel Memorial Library on the first floor.">Stacks Coffee Shop</option>
-<option value="Noel Memorial Library on the first floor.">Student Success Center</option>
-<option value="the University Center on the first floor.">The Port (LSUS OnCampus Dining and Coffee Shop)</option>
-<option value="the University Center on the second floor.">University Center Ballroom</option>
-<option value="the University Center on the first floor.">University Center Theatre</option>
-<option value="the Technology Center on the first floor (Room 103).">Veterans Resource Center</option>
+  <option value="" disabled selected>Where is...</option>
+    <option value="Administration Building Room 257">Academic Affairs</option>
+<option value="Administration Building on the 2nd floor.">Alumni Relations</option>
+<option value="University Center on the 1st floor.">Campus Wide Computer Lab</option>
+<option value="Noel Memorial Library on the 1st floor.">Career Center </option>
+<option value="Administration Building on the 2nd floor.">Chancellor's Office</option>
+<option value="Bronson Hall Room 226">College of Arts and Sciences</option>
+<option value="Business & Education Building Room 101">College of Business</option>
+<option value="Business & Education Building Room 117">College of Education and Human Development</option>
+<option value="Administration Building Room 230">Counseling and Student Development Center</option>
+<option value="Technology Center Room 104">CyberCollaboratory</option>
+<option value="Administration Building Room 208">Dean of Students</option>
+<option value="Business & Education Building Room 339">Department of Accounting and Business Law </option>
+<option value="Bronson Hall Room 142">Department of Arts and Media </option>
+<option value="Science Hall Room 104">Department of Biological Science</option>
+<option value="Science Hall Room 112">Department of Chemistry and Physics </option>
+<option value="Technology Center Room 206">Department of Computer Science </option>
+<option value="Business & Education Building Room 339">Department of Economics and Finance </option>
+<option value="Business & Education Building Room 394">Department of Education </option>
+<option value="Bronson Hall Room 258">Department of English and Foreign Languages </option>
+<option value="Bronson Hall Room 439">Department of History and Social Sciences </option>
+<option value="Health and Physical Education Room 207">Department of Kinesiology and Health Science</option>
+<option value="Business & Education Building Room 301">Department of Management and Marketing </option>
+<option value="Bronson Hall Room 330">Department of Mathematics </option>
+<option value="Business & Education Building Room 348">Department of Psychology </option>
+<option value="Technology Center Room 133">Division of Continuing Education and Public Service</option>
+<option value="Administration Building Room 159">Financial Aid</option>
+<option value="Administration Building Room 249">Graduate Studies Office</option>
+<option value="Administration Building Room 202">Information Technology Services</option>
+<option value="University Center on the first floor.">LSUS Bookstore</option>
+<option value="Administration Building Room 133">LSUS Police Department</option>
+<option value="University Center on the 2nd floor.">Office of Student Activites</option>
+<option value="Technology Center Room 254">Pioneer Heritage Center</option>
+<option value="Noel Memorial Library on the 1st floor.">Stacks Coffee Shop</option>
+<option value="Noel Memorial Library on the 1st floor.">Student Success Center</option>
+<option value="University Center on the 1st floor.">The Port (LSUS OnCampus Dining and Coffee Shop)</option>
+<option value="University Center on the 2nd floor.">University Center Ballroom</option>
+<option value="University Center on the 1st floor.">University Center Theatre</option>
+<option value="Technology Center Room 103">Veterans Resource Center</option>
 
   </select>
 </form>
@@ -2246,7 +2246,7 @@ L.geoJSON(ppageoJSON , {'fillcolor': '#ffffff', 'fillopacity': 1.0, 'color': '#f
       function myFunction() {
   		var x = document.getElementById("locationSelect");
   		var i = x.selectedIndex;
-  		document.getElementById("locator").innerHTML = "That's located in " + x.options[i].value;
+  		document.getElementById("locator").innerHTML = x.options[i].value;
 }
 
     </script>
