@@ -150,10 +150,20 @@ blockquote.speech {
 	padding-bottom: 8%;
 }
 
+#warning-message { display: none; }
+    @media only screen and (orientation:portrait){
+        #wrapper { display:none; }
+        #warning-message { display:block; }
+    }
+    @media only screen and (orientation:landscape){
+        #warning-message { display:none; }
+    }
+
 	</style>    
   </head>
 
   <body>
+    <div id="wrapper">
     <!-- add title text -->
     <h1>LSUS Campus Map</h1>
     <!--add div for map -->
@@ -214,6 +224,10 @@ blockquote.speech {
 </section>
 
 	  <img src = "Rev.svg" alt = "Rev giving a thumbs up">
+</div>
+<div id="warning-message">
+    This website is only viewable in landscape mode.
+</div>
 
     <script>
           
