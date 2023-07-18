@@ -48,7 +48,7 @@
         display: block;
         max-width: 20%;
         height: auto;
-        margin-left: 23%;
+        margin-left: 25%;
         margin-right: auto;
       }
 
@@ -2213,7 +2213,7 @@ L.geoJSON(ppageoJSON , {'fillcolor': '#ffffff', 'fillopacity': 1.0, 'color': '#f
       function myFunction() {
   		var x = document.getElementById("locationSelect");
   		var i = x.selectedIndex;
-  		document.getElementById("locator").innerHTML = x.options[i].value;
+  		document.getElementById("locator").innerHTML = "<p>" + x.options[i].value + "</p>;
 }
 
     </script>
